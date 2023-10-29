@@ -14,4 +14,7 @@ public class Mascota {
     Long id;
     String nombre;
     String dueño;
+
+    // soft delete
+    // Boolean estaEliminado;
 }
