@@ -1,4 +1,4 @@
-package pe.edu.cibertec.veterinaria.entidades;
+package pe.edu.cibertec.veterinaria;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

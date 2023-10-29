@@ -1,8 +1,6 @@
-package pe.edu.cibertec.veterinaria.repositories;
+package pe.edu.cibertec.veterinaria;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import pe.edu.cibertec.veterinaria.entidades.Mascota;
 
 public interface MascotaRepository extends JpaRepository<Mascota, Long> {
 }
