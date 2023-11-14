@@ -28,6 +28,7 @@ public class VeterinarioController {
 
         // select nombre, especialidad.nombre from Veterinario join Especialidad;
 
+        // select * from Veterinario;
         // return veterinarioRepository.findAll().stream().map(veterinario -> {
         // VeterinarioDto dto = new VeterinarioDto();
         // dto.nombre = veterinario.getNombre();
