@@ -15,6 +15,8 @@ public class Mascota {
     String nombre;
     String dueño;
 
+    // LocalDate fechaCreacion;
+
     // soft delete
     // Boolean estaEliminado;
 }

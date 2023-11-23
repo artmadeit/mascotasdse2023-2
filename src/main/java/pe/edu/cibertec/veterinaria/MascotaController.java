@@ -2,6 +2,8 @@ package pe.edu.cibertec.veterinaria;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -28,11 +30,15 @@ public class MascotaController {
 
     MascotaRepository mascotaRepository;
 
+    // number, content, siguiente, anterior, tamaño de pagina, total ...
+
     @GetMapping
     public List<Mascota> findAll(String nombre) {
         if (nombre != null) {
             return mascotaRepository.searchByNombreContains(nombre);
         }
+
+        // 50_000 registrados
 
         return mascotaRepository.findAll();
     }
