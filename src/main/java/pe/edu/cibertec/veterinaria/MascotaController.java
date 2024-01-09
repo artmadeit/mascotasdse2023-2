@@ -37,15 +37,15 @@ public class MascotaController {
 
         // opcion 2. ignorar el campo al momento de ser serializado
         if (nombre != null) {
-            return mascotaRepository.findByNombreContainsAndIsDeletedFalse(nombre, pageable);
+            return mascotaRepository.findByNombreContains(nombre, pageable);
         }
 
-        return mascotaRepository.findAllByIsDeletedFalse(pageable);
+        return mascotaRepository.findAll(pageable);
     }
 
     @GetMapping("{id}")
     public ResponseEntity<Mascota> findById(@PathVariable Long id) {
-        return ResponseEntity.of(mascotaRepository.findByIdAndIsDeletedFalse(id));
+        return ResponseEntity.of(mascotaRepository.findById(id));
     }
 
     @DeleteMapping("{id}")
@@ -63,7 +63,7 @@ public class MascotaController {
 
         // 2da. opcion
         // update
-        mascotaRepository.softDelete(id);
+        mascotaRepository.deleteById(id);
     }
 
     @PostMapping

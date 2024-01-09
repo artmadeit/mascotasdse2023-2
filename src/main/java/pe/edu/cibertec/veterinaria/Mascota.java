@@ -1,5 +1,8 @@
 package pe.edu.cibertec.veterinaria;
 
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
@@ -11,6 +14,8 @@ import lombok.Getter;
 
 @Entity
 @Getter
+@SQLDelete(sql = "UPDATE mascota SET eliminado = true WHERE id=?")
+@Where(clause = "eliminado = false")
 public class Mascota {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
