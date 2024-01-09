@@ -1,5 +1,8 @@
 package pe.edu.cibertec.veterinaria;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
@@ -14,8 +17,8 @@ import lombok.Getter;
 
 @Entity
 @Getter
-@SQLDelete(sql = "UPDATE mascota SET eliminado = true WHERE id=?")
-@Where(clause = "eliminado = false")
+@SQLDelete(sql = "UPDATE mascota SET fecha_eliminado = now() WHERE id=?")
+@Where(clause = "fecha_eliminado is null")
 public class Mascota {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +28,6 @@ public class Mascota {
 
     // soft delete
     @JsonIgnore
-    @Column(name = "eliminado")
-    Boolean isDeleted = false;
+    @Column(name = "fecha_eliminado")
+    LocalDateTime deletedDate;
 }

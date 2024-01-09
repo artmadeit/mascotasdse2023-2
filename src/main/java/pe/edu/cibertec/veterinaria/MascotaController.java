@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.AllArgsConstructor;
 
+import java.time.LocalDateTime;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -64,6 +66,14 @@ public class MascotaController {
         // 2da. opcion
         // update
         mascotaRepository.deleteById(id);
+
+        // 3er opcion: cuando tienes mas informacion
+        // mascotaRepository.findById(id).ifPresent(mascota -> {
+        // mascota.deletedDate = LocalDateTime.now();
+        // mascota.razonEliminacion = " lo elimino ñpor queior";
+        // mascota.eliminadoPor = userActual;
+        // mascotaRepository.save(mascota);
+        // });
     }
 
     @PostMapping
